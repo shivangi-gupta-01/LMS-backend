@@ -34,10 +34,10 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 
 app.get('/ping' , ( req , res) => {
-    res.send('Pong');
+   return res.send('Pong');
 });
 app.use('/',(req,res)=>{
-    res.send({"api hit": "runing successfully"})
+    return res.send({"api hit": "runing successfully"}) 
 })
 app.use('/api/v1/user' , userRoute);
 app.use('/api/v1/course' , courseRoute);
@@ -45,7 +45,7 @@ app.use('/api/v1/payment' , paymentRoute);
 app.use('/api/v1' , miscRoute);
 
 app.use('*' , ( req , res) => {
-    res.status(404).send('Oops!! 404 page not found');
+   return res.status(404).send('Oops!! 404 page not found');
 });
 
 app.use(errorMiddleware);
