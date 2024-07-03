@@ -12,13 +12,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 app.use(cors({
-    origin : ["http://localhost:5173","http://localhost:5173/"],
+    origin : ["http://localhost:5173","http://localhost:5173/", "https://lms-frontend-red.vercel.app/" , "https://lms-frontend-red.vercel.app"],
     credentials: true
 }));
 connectToDB();
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    res.setHeader('Access-Control-Allow-Origin', 'https://lms-frontend-red.vercel.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
