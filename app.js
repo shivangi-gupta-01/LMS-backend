@@ -37,9 +37,6 @@ app.use(morgan('dev'));
 app.get('/ping' , ( req , res) => {
    return res.send('Pong');
 });
-app.use('/',(req,res)=>{
-    return res.send({"api hit": "runing successfully"}) 
-})
 app.use('/api/v1/user' , userRoute);
 app.use('/api/v1/course' , courseRoute);
 app.use('/api/v1/payment' , paymentRoute);
